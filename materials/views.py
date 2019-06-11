@@ -1,23 +1,46 @@
-from django.shortcuts import render
 from django.http import HttpResponse
-
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the materials index.")
-
-from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+# from django.urls import reverse
 from django.views import generic
-from django.utils import timezone
+from django.template import loader
+import json
 
-from .models import Article 
-# Choice 
+# def index(request):
+with open("./materials/quotes_api.json", encoding='utf-8') as json_data:
+    data = json.load(json_data)
+
+for quote in data['quotes']:
+    print(quote["CompanyName"])
+
+    # return render(request, 'materials/index.html', {'data':data})
 
 
-class IndexView(generic.ListView):
-    template_name = 'materials/index.html'
-    context_object_name = 'latest_article_list'
+
+# for quote in data['quotes']:
+#     print(quote)
+
+
+# def index(request):
+    # with open('quotes_api.json', 'r', encoding='utf-8') as json_file:
+    # data = json.load(json_file)
+
+    # for quotes_api in data['quotes_api']:
+    #     print(quotes_api['CompanyName'], quotes_api['ExchangeName'])
+
+    # return HttpResponse("Hello, world. You're at the materials index.")
+
+        # return render(request, "materials/index.html", {'data':data})
+# def detail(request, article_id):
+#     return HttpResponse("You're looking at article %s." % article_id)
+
+# def results(request, article_id):
+#     response = "You're looking at the results of article %s."
+#     return HttpResponse(response % article_id)
+# C:\\Users\\stark\\Desktop\\Code\\codeChallenges\\motleyFool\\foolMeOnce\\materials\\quotes_api.json", 'r', encoding='utf-8'
+
+# class IndexView(generic.ListView):
+#     template_name = 'materials/index.html'
+#     context_object_name = 'latest_article_list'
 
 # def get_queryset(self):
 #     """
@@ -28,14 +51,19 @@ class IndexView(generic.ListView):
 #         pub_date__lte=timezone.now()
 #     ).order_by('-pub_date')[:5]
 
-class DetailView(generic.DetailView):
-    model = Article
-    template_name = 'materials/detail.html'
+
+# def vote(request, question_id):
+#     return HttpResponse("You're voting on question %s." % question_id)
 
 
-class ResultsView(generic.DetailView):
-    model = Article
-    template_name = 'materials/results.html'
+# class DetailView(generic.DetailView):
+#     model = Article
+#     template_name = 'materials/detail.html'
+
+
+# class ResultsView(generic.DetailView):
+#     model = Article
+#     template_name = 'materials/results.html'
 
 
 # def vote(request, article_id):
