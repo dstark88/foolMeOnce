@@ -21,6 +21,16 @@
         <div class="container content-inner">
             <div class="main-col">
                 <section class="jumbo-card card">
+                        <h1>{{ quote.quote_text }}</h1>
+
+                        <ul>
+                        {% for quote in data %}
+                            <li>{{ quote.CompanyName }}</li>
+                        {% endfor %}
+                        </ul>
+                        <!-- {% for index in data %}
+                        <h1>{{quote.CompanyName}}</h1>
+                        {% endfor %} -->
                     <div class="card-image">
                         <a href="article.html"><img src="images/card.jpg" alt="" class="img-responsive"></a>
                     </div>
