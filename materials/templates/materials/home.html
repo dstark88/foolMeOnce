@@ -2,6 +2,14 @@
 
 {% block content %}
 <p>Welcome to the home page</p>
+    <!-- {% for data in quotes %}
+        <h5>{{ quote.CompanyName }}<a href="materials/{{get.id}}"></a> {{ quote.Symbol}} </a></h5>
+    {% endfor %} -->
+    <ul>
+        {% for content in contents %}
+            <li>{{ content.next }}</li>
+        {% endfor %}
+    </ul>
 
 {% include "materials/includes/htmlsnippet.html" %}
 {% endblock %}
