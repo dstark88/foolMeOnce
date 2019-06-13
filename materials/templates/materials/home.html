@@ -7,9 +7,15 @@
     {% endfor %} -->
     <ul>
         {% for content in contents %}
-            <li>{{ content.next }}</li>
+            <li>{{ contents.next }}</li>
         {% endfor %}
     </ul>
+    <form>
+        {{data.count}}
+        <br>
+        {{data.next}}
+        <br>
+
 
 {% include "materials/includes/htmlsnippet.html" %}
 {% endblock %}

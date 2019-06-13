@@ -10,13 +10,13 @@ def index(request):
     with open('./materials/contents_api.json', 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
 
-    for content in data['contents']:
+    for content in data:
         # print(content['count'], content["next"])
     # contents =contents.object.all()
-        return render(request, "materials/home.html", {'data':data})
+        return render(request, "materials/home.html", ({'data':data}))
 
 def about(request):
-    return render(request, 'materials/basic.html', {'content':['about me', 'add a link her']})
+    return render(request, 'materials/basic.html', {'content':['about me', 'add a link here']})
 
 # def articles(request):
 #     with open("./materials/quotes_api.json", 'r', encoding='utf-8') as json_data:
