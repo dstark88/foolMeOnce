@@ -2,21 +2,19 @@
 
 {% block content %}
 <p>Welcome to the home page</p>
-    <!-- {% for data in quotes %}
-        <h5>{{ quote.CompanyName }}<a href="materials/{{get.id}}"></a> {{ quote.Symbol}} </a></h5>
-    {% endfor %} -->
+    <h3>headline {{ data.headline }}</h3>
+    <h6>results {{ data.results }}</h6>
     <ul>
         {% for content in contents %}
-            <li>{{ contents.next }}</li>
+            <li>{{ data.next }}</li>
         {% endfor %}
     </ul>
     <form>
-        {{data.count}}
+        <!-- {{data.results}} -->
         <br>
-        {{data.next}}
+        <!-- {{data.next}} -->
         <br>
     </form>
-
 
 {% include "materials/includes/htmlsnippet.html" %}
 {% endblock %}
