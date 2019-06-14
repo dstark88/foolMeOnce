@@ -12,8 +12,20 @@ def index(request):
 
     for content in data:
         # print(content['count'], content["next"])
-    # contents =contents.object.all()
         return render(request, "materials/home.html", ({'data':data}))
+
+def articles(request):
+    with open('./materials/quotes_api.json', 'r', encoding='utf-8') as quotes:
+        data = json.load(quotes)
+
+    # CompanyName = data['quotes'][0]['CompanyName']
+
+    for quote in data['quotes']:
+
+        # print(quote['CompanyName'])
+        return render(request, "materials/articles.html", ({'data':data}))
+        # return HttpResponse("Hello, world. You're in articles.")
+
 
 def about(request):
     return render(request, 'materials/basic.html', {'content':['about me', 'add a link here']})
